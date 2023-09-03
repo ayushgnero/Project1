@@ -9,13 +9,15 @@ def get_mongo_client():
     return SampleTable
 
 # Function to get insurance amount from MongoDB
-def get_insurance_amount(age_range, member_csv, insurance_amount_column):
-    # Use PyMongo to query MongoDB and retrieve the insurance amount based on age_range and member_csv
+def get_insurance_amount(age_range, member_csv, insurance_amount_column, tier):
+    # Use PyMongo to query MongoDB and retrieve the insurance amount based on age_range, member_csv, and tier
     collection = get_mongo_client()  # Specify your database and collection names here
     insurance_amount_column = str(insurance_amount_column)
 
-    # Construct the query based on age_range and member_csv
+    # Construct the query based on age_range, member_csv, and optional tier
     query = {"age_range": age_range, "member_csv": member_csv}
+    if tier is not None:
+        query["tier"] = tier
 
     # Perform the MongoDB query and retrieve the specified insurance amount column
     result = collection.find_one(query, {insurance_amount_column: 1})
