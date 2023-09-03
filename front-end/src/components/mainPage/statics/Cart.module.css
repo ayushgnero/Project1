@@ -1,0 +1,19 @@
+.heading{
+    font-family: 'Montserrat', sans-serif; /* Use the imported font */
+    font-weight: 100;
+    letter-spacing:-.1vw;
+    font-size: 2vw;
+    color:#2C74B3
+}
+
+.cart{
+    min-width: 50vw;
+}
+
+.closeIcon{
+    position: absolute;
+    top:5vh;
+    right:2vw;
+    color: #2C74B3;
+    cursor: pointer;
+}
